@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    function dict_obj() {
+        let arrayLikeObj = {
+            length: 2,
+            0: 'This is Array Like Object',
+            1: true
+        };
+        console.log(Array.isArray(arrayLikeObj));
+        let arrObj = Array.prototype.slice.call(arrayLikeObj, 0);
+        console.log(arrObj); // true
+        console.log(Array.isArray(arrObj)); // true
+    }
+    function fun_arr(){
+        let arrayLikeFunc2 = function (a, b) {};
+        console.log(arrayLikeFunc2);
+        console.log(arrayLikeFunc2.length); // 2
+        let arrFunc2 = Array.prototype.slice.call(arrayLikeFunc2, 0);
+        console.log(arrFunc2, arrFunc2.length); // ([undefined × 2], 2)
+    }
+    dict_obj();
+    fun_arr();
+</script>
+</html>
