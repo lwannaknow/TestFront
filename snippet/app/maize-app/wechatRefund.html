@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../../bower_components/angular/angular.js"></script>
+    <title></title>
+</head>
+<body ng-app="wechatRefund">
+<div ng-controller="refundController as rc">
+    <button ng-click="rc.refund()">退款</button>
+    <span>{{rc.status}}</span>
+</div>
+<script>
+    var SERVER_URL="http://wechat.appartner.cn";
+    (function () {
+        angular.module("wechatRefund", [])
+                .controller("refundController", function ($http) {
+                    var self = this;
+                    self.refund = function () {
+                        console.log("enter alert");
+                        var r_prarms = {
+                            "out_trade_no": "wx797461453186718",
+                            "total_amount": 590,
+                            "refund_amount": 590
+                        };
+                        $http.get(SERVER_URL + "/tenpay_refund?params=" + JSON.stringify(r_prarms))
+                                .success(function (data) {
+                                    var
+                                            status = data["status"],
+                                            result = data["data"];
+                                    if (status.toUpperCase() == "SUCCESS" && result) {
+                                        self.status = "退款成功";
+                                    }
+                                    else {
+                                        self.status = "退款失败,请联系客服"
+                                    }
+                                })
+                                .error(function () {
+                                    self.status = "网络错误,无法退款。请联系客服人工退款"
+                                })
+                    };
+                });
+    })();
+</script>
+</body>
+</html>

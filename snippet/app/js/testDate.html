@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1 id="date"></h1>
+<h1 id="year"></h1>
+<h1 id="month"></h1>
+<h1 id="day"></h1>
+</body>
+<script>
+    function testDate(){
+        var date=new Date();
+        console.log("date:"+date.getDate());
+        console.log("month:"+date.getMonth());
+        console.log("day:"+date.getDay());
+        console.log("year:"+date.getFullYear());
+        console.log("time:"+date.getTime());
+        console.log("now:"+Date.now());
+        console.log("UTCString:"+date.toUTCString());
+        console.log("LocaleDateString:"+date.toLocaleDateString());
+        $("#date").html(date);
+    }
+    testDate();
+</script>
+</html>

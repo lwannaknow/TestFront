@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="myScope">
+<div ng-controller="ParentController">
+    <h1>parent-last-name:{{lastName}}</h1>
+
+    <div ng-controller="ChildController ">
+        <h1>child-last-name:{{lastName}}</h1>
+        <h1>child-this_name:{{this_name}}</h1>
+    </div>
+</div>
+</body>
+<script src="../../files/libs/angular.js" type="text/javascript"></script>
+<script type="text/javascript">
+    angular.module('myScope', [])
+            .controller('ParentController', function ($scope) {
+                console.log($scope);
+                var self = this;
+                $scope.lastName = "malishu";
+                this.this_name="this_father_name";
+            })
+            .controller('ChildController', function () {
+//                var self = this;
+            })
+</script>
+</html>

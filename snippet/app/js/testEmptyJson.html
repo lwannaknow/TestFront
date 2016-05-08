@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    // Speed up calls to hasOwnProperty
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+    function isEmpty(obj) {
+
+        // null and undefined are "empty"
+        if (obj == null) return true;
+
+        // Assume if it has a length property with a non-zero value
+        // that that property is correct.
+        if (obj.length > 0)    return false;
+        if (obj.length === 0)  return true;
+
+        // Otherwise, does it have any properties of its own?
+        // Note that this doesn't handle
+        // toString and valueOf enumeration bugs in IE < 9
+        for (var key in obj) {
+            if (hasOwnProperty.call(obj, key)) return false;
+        }
+
+        return true;
+    }
+
+//    10 times slower than for var iteration
+//    a=[1,2,3],keys length is 3, delete a[0], len is 2, a[1]=undefined ,len is 2,keys is [1,2]
+    function checkLength(Obj) {
+        return Object.keys(Obj).length === 0
+    }
+
+    var a = undefined;
+    if (!isEmpty(a)) console.log("undefined is not empty");
+    var b = {};
+    if (!isEmpty(b)) console.log("{} is not empty");
+    var c = {"1": 2};
+    delete c["1"];
+    if (!isEmpty(a)) console.log("c is not empty");
+    var d = {"1": 2};
+    if (!isEmpty(d)) console.log("d is not empty");
+</script>
+</html>

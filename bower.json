@@ -1,0 +1,17 @@
+{
+  "name": "TestFront",
+  "description": "test javascript, html , angular and etc...",
+  "main": "index.js",
+  "authors": [
+    "Jim"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

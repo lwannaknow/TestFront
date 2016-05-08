@@ -1,0 +1,47 @@
+<style rel="stylesheet">
+    .maize_color {
+        background-color: #fdd100;
+        color:#333;
+    }
+
+    .footer {
+        margin: 0;
+        text-align: center;
+        height: 49%;
+    }
+
+    .align_center {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+</style>
+<div style="height:100%">
+    <header id="header" class="maize_color" style="text-align: center;height: 10%;width: 100%">
+        <a class="btn pull-left" href="#" role="button" style="padding: 6px 10px 0 10px;" ng-click="map.go_back()">
+            <img class="img-responsive" src="img/pickout/left.jpg">
+        </a>
+
+        <h3 style="display: inline-block;letter-spacing:2px">取货机器</h3>
+    </header>
+    <!-- map  -->
+    <div class="row" id="container_kiosk_map" style="height: 70%;width: 100%;margin: 0">
+
+    </div>
+    <!--footer-->
+    <div class="row" style="height: 20%;width: 100%;margin:0">
+        <div style="height: 100%;">
+            <div style="border-bottom:2px outset #b6b6b6;padding: 1%;" class="footer">
+                <span style="font-size: 100%">{{map.exact_address}}</span>
+                <br>
+                <span style="font-size: 120%">{{map.district}}</span>
+            </div>
+            <div class="footer" ng-click="map.chosen()">
+                <a class="btn btn-default" ng-class="{'btn-default':map.is_default,'maize_color':!map.is_default}"
+                   style="height: 100%;width: 100%;font-size: 160%;">
+                    {{map.is_default?"默认取货机器":"更改取货机器"}}</a>
+            </div>
+        </div>
+    </div>
+</div>

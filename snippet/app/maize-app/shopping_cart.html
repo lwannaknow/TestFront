@@ -1,0 +1,101 @@
+<top-bar style="height: 10%;">默认取货机器</top-bar>
+<div id="cart_view" class="container-fluid" style="height: 90%;">
+    <!-- cart table -->
+    <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>数量</th>
+                    <th>价格</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="product in cart.products">
+                    <td>{{product.easy_name}}</td>
+                    <td>{{product.purchase_num}}</td>
+                    <td>{{product.purchase_amount}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- coupons -->
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-warning btn-group-justified">未选择优惠券</button>
+        </div>
+    </div>
+    <hr>
+    <!-- total_amount -->
+    <div class="row">
+        <div class="col-xs-6">总计</div>
+        <div class="col-xs-6">{{cart.total_amount}}</div>
+    </div>
+    <!-- machine selection -->
+    <div class="row" style="height: 30%">
+        <div ng-show="cart.loading_kiosk" class=" alert alert-warning" style="position:relative;top: 40%;">
+            读取信息中....
+        </div>
+        <div ng-hide="cart.loading_kiosk" style="position:relative;top: 40%;">
+            <div ng-show="cart.has_kiosk" class="col-xs-12">
+                商品取货于{{cart.kiosk_info.short_name}}
+                <button ng-show="cart.alter_button" class="btn btn-link" data-toggle="modal" data-target="#myModal">
+                    更改机器
+                </button>
+            </div>
+            <div ng-hide="cart.has_kiosk" class="col-xs-12" style="position:relative;top: 40%;">
+                <div class="alert alert-warning">
+                    {{cart.none_kiosk_msg}}
+                    <button ng-show="cart.alter_button" class="btn btn-link" data-toggle="modal" data-target="#myModal"
+                            >选择机器
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pay button -->
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-success btn-group-justified" ng-click="cart.pay()"><i class="">wechat icon</i>微信支付
+            </button>
+        </div>
+    </div>
+    <!-- alert -->
+    <div class="row" ng-show="cart.show_alert">
+        <div class="col-xs-12">
+            <div class="alert"
+                 ng-class="{'alert-success':cart.alert_success,'alert-danger':!cart.alert_success}">
+                {{cart.alert_msg}}
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog" style="top:20%;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;height: 80%">
+                    <p style="font-size: 120%">注意</p>
+                    <br>
+                    <span style="font-size: 120%">你是否确认修改修改取货机器</span>
+                </div>
+                <div class="modal-footer" style="height: 50px;padding: 0">
+                    <button type="button" class="btn btn-default"
+                            style="width:49%;height:100%;margin: 0;border: 0;font-size: 120%" data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-default"
+                            style="width:50%;height:100%;margin: 0;border: 0;font-size: 120%;background-color:#fdd100 "
+                             ng-click="cart.alter_kiosk()">确认
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
