@@ -1,0 +1,97 @@
+.normal-div{
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: black;
+}
+
+.no-width-div{
+    margin: 10px auto;
+    background: wheat;
+}
+
+.normal-img{
+    margin: 10px auto;
+    width: 10%;
+    height: 10%;
+}
+
+.relative-container{
+    height: 50px;
+    width: 50px;
+    background: #eee;
+    margin: 10px auto;
+    position: relative;
+}
+
+.absolute-box{
+    height: 10px;
+    width: 10px;
+    background: #222;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+
+.fluid-relative-container{
+    height: 50px;
+    width: 50px;
+    background: #FF7800;
+    margin: 10px auto;
+    position: relative;
+}
+
+.fluid-relative-container{
+    height: 50px;
+    width: 50px;
+    background: #FF7800;
+    margin: 10px auto;
+    position: relative;
+}
+
+.fluid-absolute-box{
+    height: 10px;
+    width: 10px;
+    background: #ffc520;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin:-5px 0 0 -5px;
+}
+
+.fluid-relative-container-per{
+    height: 50px;
+    width: 50px;
+    background: #FF7800;
+    margin: 10px auto;
+    position: relative;
+
+}
+
+.fluid-absolute-box-per{
+    height: 20%;
+    width: 20%;
+    background: #ffc520;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin:-10% 0 0 -10%;
+}
+
+.center-background{
+    background: #EEEEEE url('../images/center-all/test.jpg') no-repeat center;
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+}
+
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    /*the block will fill all available space in its offset parent*/
+    top: 0; left: 0; bottom: 0; right: 0;
+    height: 20%;
+    width: 20%;
+    background-color: red;
+}

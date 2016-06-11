@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/center-all.css">
+</head>
+<body>
+<div class="normal-div"></div>
+<div class="no-width-div">text has width</div>
+<div>
+    <span class="no-width-div">inline,no width</span>
+</div>
+<img src="../../assets/images/empty_slot.jpg" class="normal-img">
+<div class="relative-container">
+    fixed width
+    <!-- left=(x-y)/2 x=parent width y=child width(center formula)-->
+    <div class="absolute-box"></div>
+</div>
+
+<div class="fluid-relative-container">
+    fluid with (px)
+    <!-- left=50% margin:0 0 0 -y y=(child with)/2 (center formula)-->
+    <div class="fluid-absolute-box"></div>
+</div>
+
+<div class="fluid-relative-container-per">
+    fluid with (%)
+    <!-- left=50% margin:0 0 0 -y y=(child with)/2 (center formula)-->
+    <div class="fluid-absolute-box-per"></div>
+</div>
+
+<div class="center-background">
+
+</div>
+
+<div class="fluid-relative-container-per">
+    <div class="absolute-center"></div>
+</div>
+
+</body>
+</html>
